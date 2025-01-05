@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fusion</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="info">
+      <h1>2048</h1>
+      <div class="score-container">
+        <h2 class="score-title">Score: <span id="score">0</span></h2>
+      </div>
+    </div>
+    <p>
+      Combine the numbers to unlock the ultimate <b>2048</b> title! 
+    </p>
+    <div class="grid"></div>
+  </div>
+  <script>
+    // Protection Code Starts Here
+    document.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+      alert("Right-click is disabled to protect the code.");
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "F12") {
+        e.preventDefault();
+        alert("Inspecting the page is disabled.");
+      }
+
+      if (e.ctrlKey && e.shiftKey && e.key === "I") {
+        e.preventDefault();
+        alert("Inspecting the page is disabled.");
+      }
+
+      if (e.ctrlKey && e.shiftKey && e.key === "J") {
+        e.preventDefault();
+        alert("Inspecting the page is disabled.");
+      }
+
+      if (e.ctrlKey && e.key === "u") {
+        e.preventDefault();
+        alert("Viewing the page source is disabled.");
+      }
+    });
+
+    setInterval(() => {
+      const devtools = /./;
+      devtools.toString = () => "devtools";
+      if (console.log(devtools) === "devtools") {
+        alert("DevTools is open! Please close it.");
+        window.location.reload(); // Optional: Reload the page
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
